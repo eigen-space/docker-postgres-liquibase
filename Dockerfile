@@ -13,7 +13,7 @@ ENV POSTGRES_HOST=${POSTGRES_HOST:-localhost}\
     POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
 
 RUN apt-get update \
-    && apt-get -y -q install default-jre \
+    && apt-get -y -q --no-install-recommends install openjdk-8-jre-headless=8u265-b01-0+deb9u1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

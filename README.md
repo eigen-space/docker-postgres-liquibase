@@ -23,6 +23,11 @@ A base image for Postgres database with Liquibase.
     docker run -it -e POSTGRES_DB=postgres -e POSTGRES_PASSWORD=000000 -e POSTGRES_HOST=localhost -e POSTGRES_PORT=5432 -e POSTGRES_USERNAME=postgres -p 5432:5432 hello-world
     ```
 
+# Linter
+
+It's highly recommended to validate your changes by running this command:\
+`docker run --rm -i hadolint/hadolint < Dockerfile`
+
 # Params
 
 | Environment Variable | Purpose | Default |
@@ -49,5 +54,6 @@ A base image for Postgres database with Liquibase.
 # Dependencies
 
 * `postgres:10` — a base official image with Postgres DB
+* `openjdk-8-jre-headless:8u265-b01-0` — stripped down version of Java 
 * `liquibase:3.6.3` — an executable binary for Liquibase
 * `postgresql-jdbc:42.1.4` — a driver which is used for the Postgres DB connection
