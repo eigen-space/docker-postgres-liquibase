@@ -54,6 +54,7 @@ It's highly recommended to validate your changes by running this command:\
 # Dependencies
 
 * `postgres:10` — a base official image with Postgres DB
-* `openjdk-8-jre-headless:8u265-b01-0` — stripped down version of Java 
-* `liquibase:3.6.3` — an executable binary for Liquibase
+* `openjdk-8-jre-headless:8u265-b01-0` — stripped down version of Java, used for Liquibase
+* `liquibase:3.6.3` — an executable binary of Liquibase
 * `postgresql-jdbc:42.1.4` — a driver which is used for the Postgres DB connection
+* `procps:2:3.3.12-3+deb9u1` — used for the killing the Postgres process

@@ -14,7 +14,15 @@ run_liquibase() {
     sleep 1;
   done
 
-  java -jar /opt/liquibase/liquibase.jar --username $POSTGRES_USERNAME --password $POSTGRES_PASSWORD --url jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB update;
+  # Liquibase is the second background process. During any patching errors,
+  # it won't affect the docker container at all. That's why we have to kill
+  # the main connected process - Postgres.
+  java -jar /opt/liquibase/liquibase.jar \
+    --username $POSTGRES_USERNAME \
+    --password $POSTGRES_PASSWORD \
+    --url jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB \
+    update \
+    || pkill postgres;
 }
 
 # 1. Run liquibase in the background process since the start
