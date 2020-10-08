@@ -1,7 +1,7 @@
 FROM postgres:10
 
 LABEL maintainer="hello.boriskas@gmail.com"
-LABEL version="1.0"
+LABEL version="1.1"
 LABEL description="A base image for Postgres database with Liquibase"
 
 EXPOSE 5432
