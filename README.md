@@ -54,7 +54,12 @@ It's highly recommended to validate your changes by running this command:\
 # Dependencies
 
 * `postgres:10` — a base official image with Postgres DB
-* `openjdk-8-jre-headless:8u265-b01-0` — stripped down version of Java, used for Liquibase
+* `openjdk-8-jre-headless:8u265-b01-0` — stripped down version of Java, used for Liquibase.
+Here "headless" means "without GUI support", so it is our case.
+It allows us to use the minimum-weighted java runtime for our purposes.
+See the more comments on [stackoverflow issue](https://stackoverflow.com/questions/24280872/difference-between-openjdk-6-jre-openjdk-6-jre-headless-openjdk-6-jre-lib)
 * `liquibase:3.6.3` — an executable binary of Liquibase
 * `postgresql-jdbc:42.1.4` — a driver which is used for the Postgres DB connection
-* `procps:2:3.3.12-3+deb9u1` — used for the killing the Postgres process
+* `procps:2:3.3.12-3+deb9u1` — used for the killing the Postgres process.
+It allows us kill process by name using the command `pkill`, not only by PID 
+as the command `kill`
