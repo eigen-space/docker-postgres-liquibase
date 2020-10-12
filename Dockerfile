@@ -25,8 +25,6 @@ COPY bin/postgresql-jdbc-42.1.4.jar /opt/jdbc/postgres-jdbc.jar
 COPY bin/start.sh /opt/scripts/start.sh
 RUN chmod +x /opt/scripts/start.sh
 
-RUN ln -s /opt/jdbc/postgres-jdbc.jar postgres-jdbc.jar
-
 COPY changes /workspace
 COPY liquibase.properties /workspace/liquibase.properties
 

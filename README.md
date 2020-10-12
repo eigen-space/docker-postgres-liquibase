@@ -10,15 +10,20 @@ A base image for Postgres database with Liquibase.
         1. `master.xml` — aggregates all changes. An example is located here as `master.sample.xml`
         2. `your-change.sql` — one of your changesets. An example is located here as `001--sample-changeset.sql`
 
-2. Inherit this base image in the Dockerfile:\
-`FROM akaeigenspace/docker-postgres-liquibase:$version`, where a version is a number or `latest`
+2. Build this project into your local registry if you have made some changes here:
+    ```
+    docker build -t akaeigenspace/docker-postgres-liquibase .
+    ```
 
-3. Build
+3. Inherit this base image in the Dockerfile:\
+    `FROM akaeigenspace/docker-postgres-liquibase:$version`, where a version is a number or `latest`
+
+4. Build
     ```
     docker build -t hello-world .
     ```
 
-4. Run
+5. Run
     ```
     docker run -it -e POSTGRES_DB=postgres -e POSTGRES_PASSWORD=000000 -e POSTGRES_HOST=localhost -e POSTGRES_PORT=5432 -e POSTGRES_USERNAME=postgres -p 5432:5432 hello-world
     ```
